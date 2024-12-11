@@ -1,0 +1,14 @@
+[
+    {
+        "user": "User1",
+        "city": "Toulouse"
+    },
+    {
+        "user": "User2",
+        "city": "Toulouse"
+    },
+    {
+        "user": "User3",
+        "city": "Paris"
+    }
+]

@@ -1,0 +1,257 @@
+/**
+ * Style :)
+ */
+
+/* RESET & BASE */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: "Open Sans", sans-serif;
+    background-color: #040404;
+    color: #fff;
+    position: relative;
+    background: #040404 url("../img/bg.jpg") top right no-repeat;
+    background-size: cover;
+  }
+  
+  @media (min-width: 1024px) {
+    body {
+      background-attachment: fixed;
+    }
+  }
+  
+  a {
+    color: #18d26e;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #35e888;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway", sans-serif;
+  }
+  
+  /* HEADER & NAVIGATION */
+  header {
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .logo {
+    height: 50px;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  
+  .nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px; 
+  }
+  
+  .nav-links li a {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px; 
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+  }
+  
+  /* Barre verte sous l'onglet actif et au survol */
+  .nav-links li a::before {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0; 
+    height: 2px;
+    background-color: #18d26e;
+    visibility: hidden;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .nav-links li a:hover::before,
+  .nav-links li a.active::before {
+    visibility: visible;
+    width: 20px;
+  }
+  
+  .nav-links li a.active {
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  /* TABLEAU DES VILLES */
+  table {
+    width: 80%;
+    margin: 20px auto 0 auto; 
+    border-collapse: collapse;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  table th, table td {
+    border: 1px solid #ddd;
+    padding: 8px 10px; 
+    text-align: center;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+  }
+  
+  table th {
+    background-color: #333;
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  table tr:hover {
+    background-color: #f1f1f1;
+    color: #333;
+  }
+  
+  /* BOUTON AJOUTER & FORMULAIRES */
+  .add-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0; 
+  }
+  
+  .add-form-container h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .add-form-container form {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .add-form-container input[type="text"] {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    background: #f9f9f9;
+    color: #333;
+  }
+  
+  .add-form-container button {
+    padding: 8px 15px;
+    background: #18d26e;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .add-form-container button:hover {
+    background: #15bb62;
+  }
+  
+  /* SECTIONS */
+  section {
+    position: relative;
+    z-index: 2;
+    padding: 20px; 
+    background: rgba(0,0,0,0.8);
+    margin-top: 30px; 
+    border-radius: 8px;
+  }
+  
+  /* PAGE D'ACCUEIL (index) */
+  .home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px; 
+  }
+  
+  .home-content h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #fff;
+  }
+  
+  .home-content p {
+    font-size: 14px;
+    color: #ccc;
+    max-width: 500px;
+    line-height: 1.4;
+    margin-bottom: 5px;
+  }
+  
+  /* PAGE LISTE DES VILLES */
+  .list-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px; 
+    padding: 0 20px;
+  }
+  
+  .list-content h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #fff;
+  }
+  
+  /* Ajustement pour la cellule d'action afin que les formulaires soient alignés horizontalement */
+  .actions-cell form {
+    display: inline-block;
+    margin: 0 3px;
+  }
+  
+  /* Ajustements pour responsivité mobile */
+  @media (max-width: 768px) {
+    .nav-links {
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    table {
+      width: 95%;
+    }
+  
+    .add-form-container form {
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    .home-content h1,
+    .list-content h1 {
+      font-size: 20px;
+    }
+  }
+  

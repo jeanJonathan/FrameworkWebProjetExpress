@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  h1= title
+  #map(style="width:100%; height:500px;")
+
+  script(src="https://unpkg.com/leaflet/dist/leaflet.js")
+  link(rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css")
+
+  script.
+    document.addEventListener('DOMContentLoaded', () => {
+      const map = L.map('map').setView([20, 0], 2);
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+
+      fetch('/api/cities-locations')
+        .then(res => res.json())
+        .then(data => {
+          data.forEach(city => {
+            // On converti lat et lng en nombre
+            const latitude = parseFloat(city.lat);
+            const longitude = parseFloat(city.lng);
+            
+            // On érifie que lat et lng sont valides
+            if (!isNaN(latitude) && !isNaN(longitude)) {
+              L.marker([latitude, longitude])
+                .addTo(map)
+                .bindPopup(city.city); 
+            }
+          });
+        })
+        .catch(err => console.error('Erreur lors du chargement des données :', err));
+    });

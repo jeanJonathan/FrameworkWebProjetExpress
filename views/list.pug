@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  .list-content
+    h1= title
+
+    table
+      thead
+        tr
+          th ID
+          th Nom
+          th Actions
+      tbody
+        each city in cities
+          if city && city.id
+            tr
+              td= city.id
+              td= city.name
+              td.actions-cell
+                form(action=`/api/city/${city.id}?_method=PUT` method="POST")
+                  input(type="text" name="name" value=city.name required)
+                  button(type="submit") Modifier
+                form(action=`/api/city/${city.id}?_method=DELETE` method="POST")
+                  button(type="submit") Supprimer
+          else
+            tr
+              td(colspan="3") "Données manquantes ou incorrectes."
+
+    .add-form-container
+      h2 Ajouter une ville
+      form(action="/api/city" method="POST")
+        input(type="text" name="name" placeholder="Nom de la ville" required)
+        button(type="submit") Ajouter

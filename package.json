@@ -1,0 +1,20 @@
+{
+  "name": "framework-web-tp3",
+  "version": "1.0.0",
+  "description": "Projet TP3 Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "csv-parser": "^3.0.0",
+    "express": "^4.21.2",
+    "method-override": "^3.0.0",
+    "pug": "^3.0.2",
+    "uuid": "^11.0.3"
+  },
+  "author": "jean-jonathan KOFFI",
+  "license": "ISC",
+  "keywords": []
+}
